@@ -1,0 +1,323 @@
+:root {
+    --bg-color: #0f0f11;
+    --card-bg: #1a1a1d;
+    --primary-color: #2ecc71;
+    --text-color: #ffffff;
+    --secondary-text: #a0a0a0;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 2rem;
+}
+
+.subtitle {
+    color: var(--secondary-text);
+    font-weight: 300;
+}
+
+/* Status Bar */
+.status-bar {
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    background: rgba(26, 26, 29, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#count-display {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+button {
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#continue-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#continue-btn:disabled {
+    background-color: #333;
+    color: #666;
+    cursor: not-allowed;
+}
+
+#continue-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.image-card {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 3/4;
+    transition: var(--transition);
+    border: 3px solid transparent;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+.image-card .name-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 20px 10px 10px;
+    text-align: center;
+    font-weight: 500;
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.image-card:hover .name-tag {
+    transform: translateY(0);
+}
+
+.image-card.selected {
+    border-color: var(--primary-color);
+    transform: scale(0.95);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
+}
+
+.image-card.selected::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 40px 10px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.image-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Result Phase */
+.hidden {
+    display: none !important;
+}
+
+#result-phase {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 30px 0;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+.result-preview img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-group label {
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid #333;
+    background: #222;
+    color: white;
+    font-family: inherit;
+    text-align: center;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+}
+
+.actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: var(--secondary-text);
+}
+
+.secondary-btn:hover {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+footer {
+    margin-top: 50px;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Mode Toggle */
+.mode-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.toggle-btn {
+    background-color: #222;
+    color: #888;
+    border: 2px solid #333;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.toggle-btn:hover {
+    border-color: #555;
+    color: #fff;
+}
+
+.toggle-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
