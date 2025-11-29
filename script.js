@@ -136,7 +136,7 @@ downloadBtn.addEventListener('click', async () => {
         alert("Lütfen indirmeden önce adınızı giriniz.");
         return;
     }
-    const websiteName = "big5_big15.vercel"; // Placeholder as requested
+    const websiteName = "yourbig5.vercel.app"; // Placeholder as requested
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
