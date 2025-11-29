@@ -102,7 +102,7 @@ button {
 
 #continue-btn:not(:disabled):hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+    box-shadow: 0 4px 15px rgba(136, 247, 0, 0.4);
 }
 
 /* Grid */
@@ -275,6 +275,11 @@ button {
     font-size: 1.1rem;
 }
 
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(136, 247, 0, 0.4);
+}
+
 .secondary-btn {
     background-color: transparent;
     border: 2px solid #333;
@@ -292,6 +297,30 @@ footer {
     font-size: 0.9rem;
     text-align: center;
     padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    color: var(--secondary-text);
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.social-btn svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Mode Toggle */
