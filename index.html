@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top 15 Seçiminiz</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big 15 Koleksiyonu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="app-container">
-        <header>
-            <img src="logo.jpg" alt="Logo" class="logo">
-            <h1 id="page-title">Top 15 Seçiminiz</h1>
-            <p class="subtitle" id="page-subtitle">Kişisel koleksiyonunuzu oluşturmak için 15 favori seçin.</p>
-            
-            <div class="mode-toggle">
-                <button id="mode-5" class="toggle-btn">Top 5</button>
-                <button id="mode-15" class="toggle-btn active">Top 15</button>
-            </div>
-        </header>
+      <header>
+        <img src="logo.jpg" alt="Logo" class="logo" />
+        <h1 id="page-title">Big 15</h1>
+        <p class="subtitle" id="page-subtitle">
+          Kişisel koleksiyonunuzu oluşturmak için 15 favori kızınızı seçin.
+        </p>
 
-        <main id="selection-phase">
-            <div class="status-bar">
-                <span id="count-display">0 / 15 Seçildi</span>
-                <button id="continue-btn" disabled>Devam Et</button>
-            </div>
-            <div class="grid-container" id="image-grid">
-                <!-- Images will be injected here by JS -->
-            </div>
-        </main>
+        <div class="mode-toggle">
+          <button id="mode-5" class="toggle-btn">Big 5</button>
+          <button id="mode-15" class="toggle-btn active">Big 15</button>
+        </div>
+      </header>
 
-        <main id="result-phase" class="hidden">
-            <h2>Seçimleriniz</h2>
-            <div class="result-preview" id="result-preview">
-                <!-- Selected images preview -->
-            </div>
-            
-            <div class="input-group">
-                <label for="user-name">Adınız:</label>
-                <input type="text" id="user-name" placeholder="Adınızı girin">
-            </div>
+      <main id="selection-phase">
+        <div class="status-bar">
+          <span id="count-display">0 / 15 Seçildi</span>
+          <button id="continue-btn" disabled>Devam Et</button>
+        </div>
+        <div class="grid-container" id="image-grid">
+          <!-- Images will be injected here by JS -->
+        </div>
+      </main>
 
-            <div class="actions">
-                <button id="download-btn" class="primary-btn">Koleksiyonu İndir</button>
-                <button id="back-btn" class="secondary-btn">Seçimi Düzenle</button>
-            </div>
-        </main>
+      <main id="result-phase" class="hidden">
+        <h2>Seçimleriniz</h2>
+        <div class="result-preview" id="result-preview">
+          <!-- Selected images preview -->
+        </div>
 
-        <footer>
-            <p>Made by CaganT</p>
-        </footer>
+        <div class="input-group">
+          <label for="user-name">Adınız:</label>
+          <input type="text" id="user-name" placeholder="Adınızı girin" />
+        </div>
+
+        <div class="actions">
+          <button id="download-btn" class="primary-btn">
+            Koleksiyonu İndir
+          </button>
+          <button id="back-btn" class="secondary-btn">Seçimi Düzenle</button>
+        </div>
+      </main>
+
+      <footer>
+        <p>Made by CaganT</p>
+      </footer>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

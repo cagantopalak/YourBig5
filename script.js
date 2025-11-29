@@ -34,8 +34,8 @@ function setMode(limit) {
     document.querySelectorAll('.image-card.selected').forEach(card => card.classList.remove('selected'));
 
     // Update UI Text
-    pageTitle.textContent = `Top ${limit} Seçiminiz`;
-    pageSubtitle.textContent = `Kişisel koleksiyonunuzu oluşturmak için ${limit} favori seçin.`;
+    pageTitle.textContent = `Big ${limit}`;
+    pageSubtitle.textContent = `Kişisel koleksiyonunuzu oluşturmak için ${limit} favori kızınızı seçin.`;
 
     // Update Buttons
     if (limit === 5) {
@@ -136,7 +136,7 @@ downloadBtn.addEventListener('click', async () => {
         alert("Lütfen indirmeden önce adınızı giriniz.");
         return;
     }
-    const websiteName = "big5_top15.vercel"; // Placeholder as requested
+    const websiteName = "big5_big15.vercel"; // Placeholder as requested
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -159,7 +159,7 @@ downloadBtn.addEventListener('click', async () => {
     canvas.height = totalHeight;
 
     // Fill background (Border color)
-    ctx.fillStyle = '#2ecc71'; // Green border
+    ctx.fillStyle = '#cfff02'; // Green border
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Fill inner background (where images go)
@@ -200,7 +200,7 @@ downloadBtn.addEventListener('click', async () => {
 
         // Website Name + User Name
         ctx.textAlign = 'center';
-        ctx.fillText(`My Top ${maxSelection} | ${userName}`, canvas.width / 2, footerY);
+        ctx.fillText(`My Big ${maxSelection} | ${userName}`, canvas.width / 2, footerY);
 
         // Website name on the middle
         ctx.font = '50px Outfit, sans-serif';
@@ -217,7 +217,7 @@ downloadBtn.addEventListener('click', async () => {
         try {
             const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
             const link = document.createElement('a');
-            link.download = `${userName}_top${maxSelection}.jpg`;
+            link.download = `${userName}_big${maxSelection}.jpg`;
             link.href = dataUrl;
             link.click();
         } catch (securityError) {
