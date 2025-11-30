@@ -25,6 +25,8 @@ const pageTitle = document.getElementById('page-title');
 const pageSubtitle = document.getElementById('page-subtitle');
 const mode5Btn = document.getElementById('mode-5');
 const mode15Btn = document.getElementById('mode-15');
+// Container for both mode buttons so we can hide/show them together
+const modeToggle = document.querySelector('.mode-toggle');
 
 function setMode(limit) {
     if (maxSelection === limit) return;
@@ -111,6 +113,9 @@ function updateUI() {
 continueBtn.addEventListener('click', () => {
     selectionPhase.classList.add('hidden');
     resultPhase.classList.remove('hidden');
+    // Hide mode toggle buttons and subtitle in result phase
+    if (modeToggle) modeToggle.classList.add('hidden');
+    if (pageSubtitle) pageSubtitle.classList.add('hidden');
     showResultPreview();
     window.scrollTo(0, 0);
 });
@@ -118,6 +123,9 @@ continueBtn.addEventListener('click', () => {
 backBtn.addEventListener('click', () => {
     resultPhase.classList.add('hidden');
     selectionPhase.classList.remove('hidden');
+    // Restore mode toggle buttons and subtitle when returning to selection
+    if (modeToggle) modeToggle.classList.remove('hidden');
+    if (pageSubtitle) pageSubtitle.classList.remove('hidden');
 });
 
 function showResultPreview() {
